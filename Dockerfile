@@ -1,17 +1,15 @@
-FROM python:3.9.1-slim
+FROM python:3.10-slim
+LABEL maintainer="Himanshu Nayal"
 
-COPY analyzer.py .
+EXPOSE 8501
 
-COPY main.py .
-
-COPY preprocess.py .
-
+WORKDIR /app
 COPY requirements.txt .
 
-RUN pip --install -r requirements.txt
+RUN pip install --upgrade pip
+RUN pip install streamlit
+RUN pip install -r requirements.txt
 
-EXPOSE 8051
-
-ENTRYPOINT ["streamlit","run"]
-
-CMD ["./main.py"]
+COPY ./src /examples
+ENTRYPOINT [ "streamlit", "run"]
+CMD ["/examples/intro.py"]
