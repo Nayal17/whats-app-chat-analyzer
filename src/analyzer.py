@@ -3,6 +3,7 @@ from urlextract import URLExtract
 from wordcloud import WordCloud
 from collections import Counter
 import emoji
+import os
 
 def remove_stop_words(message):
 
@@ -12,10 +13,10 @@ def remove_stop_words(message):
 
     '''''''''''''''
     
-    f1 = open('txt_files/hindi_stopwords.txt','r',encoding="utf8")
+    f1 = open(os.path.join(os.path.dirname(os.path.realpath(__file__)), "hindi_stopwords.txt"),'r',encoding="utf8")
     stop1 = f1.read()
     stop1 = stop1.split()
-    f2 = open('txt_files/hinglish+english_stop_words.txt','r',encoding="utf8")
+    f2 = open(os.path.join(os.path.dirname(os.path.realpath(__file__)),'hinglish+english_stop_words.txt'),'r',encoding="utf8")
     stop2 = f2.read()
     stop2 = stop2.split()
 
