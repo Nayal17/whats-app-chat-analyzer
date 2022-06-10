@@ -45,7 +45,7 @@ def word_cloud(opted_user,df):
     ch_df['messages'] = df['messages'].apply(remove_stop_words)
     if len(ch_df['messages'])==0:
         ch_df['messages'] = ['Not_so_active']
-    wc = WordCloud(height=1000, width=1400, min_font_size=12, background_color = 'pink')
+    wc = WordCloud(height=1000, width=1400,colormap='Set2', background_color = 'black')
     msg_wc = wc.generate(ch_df['messages'].str.cat(sep=" "))
     
     return msg_wc

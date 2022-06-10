@@ -11,7 +11,7 @@ RUN pip install --upgrade pip
 
 RUN pip install -r requirements.txt
 
-COPY ./src /files
+COPY ./src ./src
 
 ENTRYPOINT [ "streamlit", "run"]
-CMD ["/files/main.py"]
+CMD ["./src/main.py"]
